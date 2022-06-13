@@ -43,9 +43,11 @@ class SettingUpProfileForEmployerViewController: UIViewController {
                     "industry": industry,
                     "first_name" : firstName,
                     "last_name" : lastName]
-        Data.setDataForUser(data)
+        Data.setDataForUser(data){
+            self.UpdateLocalAccountInfo()
+        }
         
-        UpdateLocalAccountInfo()
+        
     
         
         
@@ -66,7 +68,7 @@ class SettingUpProfileForEmployerViewController: UIViewController {
         
         CleanFieldData()
         UpdateAccountInfo()
-        Coordinator.changeViewControllerWithIdentifier("HomeEmployerVC")
+        Coordinator.changeViewControllerWithIdentifier("HomeEmployerTBC")
         
         
 

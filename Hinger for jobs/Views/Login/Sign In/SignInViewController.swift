@@ -56,10 +56,13 @@ class SignInViewController: UIViewController {
         
     }
     @IBAction func loginFacebookBtn(_ sender: Any) {
+        print("Facebook")
     }
     @IBAction func loginGoogleBtn(_ sender: Any) {
+        print("Google")
     }
     @IBAction func creatingAnAccountBtn(_ sender: Any) {
+        print("Works")
         Coordinator.changeViewControllerWithIdentifier("SignUpVC")
     }
     @IBAction func forgotPswrdBtn(_ sender: Any) {

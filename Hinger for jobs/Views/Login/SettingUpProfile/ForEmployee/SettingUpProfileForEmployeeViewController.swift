@@ -38,9 +38,11 @@ class SettingUpProfileForEmployeeViewController: UIViewController {
         let data = ["occupancy" : occupancy,
                     "first_name" : firstName,
                     "last_name" : lastName]
-        Data.setDataForUser(data)
+        Data.setDataForUser(data){
+            self.UpdateLocalAccountInfo()
+        }
         
-        UpdateLocalAccountInfo()
+        
     
         
         

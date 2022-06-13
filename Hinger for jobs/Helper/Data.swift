@@ -14,8 +14,9 @@ class Data {
     private static var userID = Auth.auth().currentUser?.uid
     // guard let userID = Auth.auth().currentUser?.uid else { return }
     
-    static func setDataForUser(_ data : [String : Any]){
+    static func setDataForUser(_ data : [String : Any], completionHandler: (() -> Void)!){
         Firestore.firestore().collection("users").document(userID!).setData(data, merge: true)
+        completionHandler()
         
     }
     static func fetchUser(completionHandler: (() -> Void)!){ // Fetach user
@@ -24,14 +25,14 @@ class Data {
                 print(error.localizedDescription)
                 return
             }
-            guard let data = snapshot?.data() else {
-                print(snapshot?.data().debugDescription.localizedLowercase)
-                return
-            }
-            
+//            guard let data = snapshot?.data() else {
+//                print(snapshot?.data().debugDescription.localizedLowercase)
+//                return
+//            }
+            let data = snapshot?.data()
            
-            let account_type = data["account_type"] as? String
-            let first_name = data["first_name"] as? String
+            let account_type = data?["account_type"] as? String
+            let first_name = data?["first_name"] as? String
       
             UserInfo.account_type = account_type
             UserInfo.first_name = first_name

@@ -71,11 +71,13 @@ class SignUpViewController: UIViewController {
                     self.showError("Error creating a user")
                 }
                 else {
-                    Data.setDataForUser(["date_of_registration":"2022", "email" : email])
+                    Data.setDataForUser(["date_of_registration": "2022", "email" : email]){
+                        Coordinator.changeViewControllerWithIdentifier("CreatingAnAccountVC")
+                        
+                    }
                     
                 
-                    Coordinator.changeViewControllerWithIdentifier("CreatingAnAccountVC")
-                    
+                   
                 }
             }
           
